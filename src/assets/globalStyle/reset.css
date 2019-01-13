@@ -1,0 +1,54 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  box-sizing: border-box;
+  font-family: "PingFangSC-Medium", "PingFangSC-Regular", "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "微软雅黑", Arial, sans-serif;
+  width: 100%;
+  height: 100%;
+}
+#mobile,
+#root {
+  width: 100%;
+  height: 100%;
+}
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  box-sizing: inherit;
+  list-style-type: none;
+  list-style-image: none;
+  outline-style: none;
+  text-decoration: none;
+  touch-action: none;
+}
+.clearfix:after {
+  clear: both;
+  display: block;
+  content: "";
+  height: 0;
+  overflow: hidden;
+}
+.pointer {
+  cursor: pointer;
+}
+.not_allowed {
+  cursor: not-allowed;
+}
+.disabled {
+  outline: 0 none;
+  cursor: not-allowed;
+  opacity: .4;
+  filter: alpha(opacity=40);
+  pointer-events: none;
+}
+.l {
+  float: left;
+}
+.r {
+  float: right;
+}

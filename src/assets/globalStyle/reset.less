@@ -1,0 +1,88 @@
+html,
+body {
+	padding: 0;
+	margin: 0;
+	font-size: 14px;
+	box-sizing: border-box;
+	font-family:"PingFangSC-Regular","PingFangSC-Medium","Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "微软雅黑", Arial, sans-serif;
+	//font-family:"PingFangSC-Light","PingFang SC","Helvetica","Tahoma","Arial","Microsoft YaHei","Hiragino Sans GB","WenQuanYi Micro Hei","sans-serif";
+	width: 100%;
+	height: 100%;
+
+}
+
+#mobile,#root,#entry{
+    width: 100%;
+    height: 100%;
+}
+
+*,
+*:before,
+*:after {
+	margin: 0;
+	padding: 0;
+	font-size: inherit;
+	box-sizing: inherit;
+	list-style-type: none;
+	list-style-image: none;
+	text-decoration: none;
+	outline-style: none;
+	text-decoration: none;
+	touch-action: none;
+}
+
+.clearfix:after {
+	clear: both;
+	display: block;
+	content: "";
+	height: 0;
+	overflow: hidden;
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+.not_allowed {
+	cursor: not-allowed;
+    user-select: none;
+}
+
+.disabled {
+	outline: 0 none;
+	cursor: not-allowed;
+	opacity: .4;
+	filter: alpha(opacity=40);
+	pointer-events: none;
+}
+
+.l {
+	float: left;
+}
+
+.r {
+	float: right;
+}
+
+input::placeholder{
+  font-family:"PingFangSC-Regular", "PingFangSC-Medium", "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "微软雅黑", Arial, sans-serif;
+}
+
+/**
+ *  修改google浏览器，默认的聚焦黄色背景为白色
+ */
+input:-webkit-autofill,select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+}
+input{
+    outline-color: invert;
+    outline-style: none ;
+    outline-width: 0 ;
+    border: none ;
+    border-style: none ;
+    text-shadow: none ;
+    -webkit-appearance: none ;
+    -webkit-user-select: text ;
+    outline-color: transparent ;
+    box-shadow: none;
+}
