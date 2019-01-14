@@ -1,9 +1,13 @@
 import Vue from 'vue'
-import App from './app.vue'
+import Layout from './layout'
+import router from './router'
+
+Vue.config.productionTip = false;
 
 new Vue({
     el:"#root",
-    template:'<App/>',
-    components:{App}
+    router,
+    template:'<Layout/>',
+    components:{Layout}
 });
 

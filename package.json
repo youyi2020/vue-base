@@ -9,7 +9,8 @@
   "author": "jzjfsz@126.com",
   "license": "ISC",
   "dependencies": {
-    "vue": "^2.5.22"
+    "vue": "^2.5.22",
+    "vue-router": "^3.0.2"
   },
   "devDependencies": {
     "autoprefixer": "^9.4.4",
