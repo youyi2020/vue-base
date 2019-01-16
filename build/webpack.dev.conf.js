@@ -17,8 +17,8 @@ const config = merge(base, {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './index.html',
-            favicon : './favicon.ico',
+            template: './public/index.html',
+            favicon : './public/favicon.ico',
             filename : 'index.html',
             inject: true,
             hash: false
