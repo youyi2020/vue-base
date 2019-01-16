@@ -3,6 +3,7 @@ const path = require('path');
 const devMode = process.env.NODE_ENV !=='production';
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     context: path.resolve(__dirname, '../'),
@@ -116,6 +117,13 @@ module.exports = {
                 NODE_ENV: JSON.stringify(process.env.NODE_ENV)
             }
         }),
+
+        new CopyWebpackPlugin([{
+            from: path.resolve(__dirname, '../static'),
+            to: path.resolve(__dirname, '../dist/static'),
+            ignore: ['.*']
+        }]),
+
         new MiniCssExtractPlugin({ 
             filename: devMode ? '[name].css' : '[name].[hash:8].css',
             chunkFilename: devMode ? '[name].css' : '[name].[hash:8].css', //cmd和amd异步加载,而且没有给入口文件时，会生成了no-name的chunk
