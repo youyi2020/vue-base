@@ -3,7 +3,7 @@ const merge = require('webpack-merge');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const path = require('path');
 
 // optimization中配置runtimeChunk和splitChunks 代替了commonchunk
@@ -17,7 +17,7 @@ const config = merge(base, {
                 parallel: true,
                 sourceMap: true 
             }),
-            new OptimizeCssAssetsPlugin({
+            new OptimizeCssAssetsPlugin({  // 用于优化或者压缩CSS资源
                 cssProcessor: require('cssnano'), //引入cssnano配置压缩选项
                 cssProcessorPluginOptions: {
                   preset: ['default', { discardComments: { removeAll: true } }],

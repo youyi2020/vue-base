@@ -15,13 +15,13 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, '../dist'),
-        filename: '[name].[hash:8].js'
+        filename: 'js/[name].[hash:8].js'
     },
     resolve: { // 解析
         extensions: ['.vue', '.js', '.json'],
         alias:{
             'vue$': 'vue/dist/vue.esm.js',  //可以在给定对象的键后的末尾添加 $，以表示精准匹配：
-            '@': path.resolve(__dirname,'./src'),
+            '@': path.resolve(__dirname,'../src'),
         }
     },
     node: {
@@ -33,11 +33,15 @@ module.exports = {
         child_process: 'empty'
     },
     module: {
+        // babel-loader 的编译速度很慢 不仅要指定exclude 还要指定include
         rules: [
             {
                 test: /\.js$/,
                 loader: 'babel-loader',
                 exclude: /node_modules/,
+                include: [
+                    path.resolve(__dirname, "../src"),
+                ]
             },
             {
                 test: /\.vue$/,
@@ -67,7 +71,7 @@ module.exports = {
             },
         ]
     },
-
+    // [ˌɒptɪmaɪ'zeɪʃən]
     optimization:{
         // 优化持久化缓存的, runtime 指的是 webpack 的运行环境(具体作用就是模块解析, 加载) 和 模块信息清单,
         // 模块信息清单在每次有模块变更(hash 变更)时都会变更, 所以我们想把这部分代码单独打包出来, 配合后端缓存策略,
@@ -125,8 +129,8 @@ module.exports = {
         }]),
 
         new MiniCssExtractPlugin({ 
-            filename: devMode ? '[name].css' : '[name].[hash:8].css',
-            chunkFilename: devMode ? '[name].css' : '[name].[hash:8].css', //cmd和amd异步加载,而且没有给入口文件时，会生成了no-name的chunk
+            filename: devMode ? 'css/[name].css' : 'css/[name].[hash:8].css',
+            chunkFilename: devMode ? 'css/[name].css' : 'css/[name].[hash:8].css', //cmd和amd异步加载,而且没有给入口文件时，会生成了no-name的chunk  因为建议用id
           })
     ],
 };

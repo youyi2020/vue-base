@@ -1,5 +1,5 @@
 <template>
-    <div>home</div>
+    <div class="test">home</div>
 </template>
 
 <script>
@@ -8,6 +8,8 @@
     }
 </script>
 
-<style scoped>
-
+<style scoped lang="less">
+    .test{
+        color: red;
+    }
 </style>
