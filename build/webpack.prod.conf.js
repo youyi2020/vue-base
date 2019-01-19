@@ -24,6 +24,10 @@ const config = merge(base, {
     //     new webpack.NoEmitOnErrorsPlugin()
     // ]
     mode: 'production',
+    stats : 'normal',
+    performance: {
+        hints: 'warning'
+    },
     optimization: {
         // minimize: true,  // 相当于UglifyJsPlugin
         minimizer: [
