@@ -1,10 +1,13 @@
 <template>
-    <div class="test">home</div>
+    <div class="test">1234</div>
 </template>
 
 <script>
     export default {
-        name: "index"
+        name: "index",
+        created(){
+            console.log(process.env.NODE_ENV)
+        }
     }
 </script>
 

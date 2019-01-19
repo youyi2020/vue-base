@@ -4,6 +4,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 
 const config = merge(base, {
+    // 相当于
+    //  plugins: [
+    //    new webpack.NamedModulesPlugin(), 当开启 HMR(Hot Module Replacement) 的时候使用该插件会显示模块的相对路径，建议用于开发环境。 在热加载时直接返回更新文件名，而不是文件的id。
+    //    new webpack.DefinePlugin({ "process.env.NODE_ENV": JSON.stringify("development") }),
+    //  ]
     mode: 'development',
     devtool: 'inline-source-map',
     optimization: {

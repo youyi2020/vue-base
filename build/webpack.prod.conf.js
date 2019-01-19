@@ -8,6 +8,21 @@ const path = require('path');
 
 // optimization中配置runtimeChunk和splitChunks 代替了commonchunk
 const config = merge(base, {
+    // 相当于
+    // plugins: [
+    //         uglifyJsPlugin 用来对js文件进行压缩，从而减小js文件的大小，加速load速度。
+    //         uglifyJsPlugin会拖慢webpack的编译速度，所有建议在开发简单将其关闭，部署的时候
+    //     new UglifyJsPlugin()
+    //
+    //     new webpack.DefinePlugin({ "process.env.NODE_ENV": JSON.stringify("production") }),
+    //         Scope Hoisting-作用域提升,webpack2处理后的每个模块均被一个函数包裹
+    //         这样会带来一个问题：降低浏览器中JS执行效率，这主要是闭包函数降低了JS引擎解析速度。
+    //         于是webpack团队参考Closure Compiler和Rollup JS，将一些有联系的模块，放到一个闭包函数里面去
+    //         通过减少闭包函数数量从而加快JS的执行速度。  concatenation : 一系列互相关联的事物;
+    //     new webpack.optimize.ModuleConcatenationPlugin(),
+    //         在编译出现错误时，使用 NoEmitOnErrorsPlugin 来跳过输出阶段。这样可以确保输出资源不会包含错误。对于所有资源，统计资料(stat)的 emitted 标识都是 false。
+    //     new webpack.NoEmitOnErrorsPlugin()
+    // ]
     mode: 'production',
     optimization: {
         // minimize: true,  // 相当于UglifyJsPlugin

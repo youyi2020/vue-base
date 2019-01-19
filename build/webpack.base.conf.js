@@ -1,10 +1,11 @@
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const path = require('path');
 const devMode = process.env.NODE_ENV !=='production';
-const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
+// runtime 包含：在模块交互时，连接模块所需的加载和解析逻辑。包括浏览器中的已加载模块的连接，以及懒加载模块的执行逻辑。
+// 当编译器(compiler)开始执行、解析和映射应用程序时，它会保留所有模块的详细要点。这个数据集合称为 "Manifest"，当完成打包并发送到浏览器时，会在运行时通过 Manifest 来解析和加载模块。无论你选择哪种模块语法，那些 import 或 require 语句现在都已经转换为 __webpack_require__ 方法，此方法指向模块标识符(module identifier)。通过使用 manifest 中的数据，runtime 将能够查询模块标识符，检索出背后对应的模块。
 module.exports = {
     context: path.resolve(__dirname, '../'),
     performance: {
@@ -32,6 +33,7 @@ module.exports = {
         tls: 'empty',
         child_process: 'empty'
     },
+    // loader 用于对模块的源代码进行转换。loader 可以使你在 import 或"加载"模块时预处理文件
     module: {
         // babel-loader 的编译速度很慢 不仅要指定exclude 还要指定include
         rules: [
@@ -40,7 +42,7 @@ module.exports = {
                 loader: 'babel-loader',
                 exclude: /node_modules/,
                 include: [
-                    path.resolve(__dirname, "../src"),
+                    path.resolve(__dirname, '../src'),
                 ]
             },
             {
@@ -115,12 +117,13 @@ module.exports = {
     },
     plugins: [
         new VueLoaderPlugin(),
+        // webpack4 在mode中自带
         // DefinePlugin允许我们创建全局变量，可以在编译时进行设置，因此我们可以使用该属性来设置全局变量来区分开发环境和正式环境
-        new webpack.DefinePlugin({
-            'process.env': {
-                NODE_ENV: JSON.stringify(process.env.NODE_ENV)
-            }
-        }),
+        // new webpack.DefinePlugin({
+        //     'process.env': {
+        //         NODE_ENV: JSON.stringify(process.env.NODE_ENV)
+        //     }
+        // }),
 
         new CopyWebpackPlugin([{
             from: path.resolve(__dirname, '../static'),
@@ -134,3 +137,8 @@ module.exports = {
           })
     ],
 };
+
+// 模块热替换(HMR - Hot Module Replacement)功能会在应用程序运行过程中替换、添加或删除模块，而无需重新加载整个页面。主要是通过以下几种方式，来显著加快开发速度：
+// 保留在完全重新加载页面时丢失的应用程序状态。
+// 只更新变更内容，以节省宝贵的开发时间。
+// 调整样式更加快速 - 几乎相当于在浏览器调试器中更改样式。
