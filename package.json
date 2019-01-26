@@ -1,6 +1,6 @@
 {
   "name": "vue-base",
-  "description": "a customized vue configuration with webpack4 to quickly start your project",
+  "description": "vue configuration with webpack4 to quickly start your project",
   "main": "index.js",
   "scripts": {
     "build": "cross-env NODE_ENV=production  webpack --config ./build/webpack.prod.conf.js",
