@@ -1,14 +1,18 @@
 {
-  "name": "tg-base",
+  "name": "vue-base",
   "description": "a customized vue configuration with webpack4 to quickly start your project",
   "main": "index.js",
   "scripts": {
     "build": "cross-env NODE_ENV=production  webpack --config ./build/webpack.prod.conf.js",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --progress --config ./build/webpack.dev.conf.js"
   },
-  "author": "jzjfsz@126.com",
+  "author": { 
+    "name": "youyi.sun",
+    "email": "jzjfsz@126.com"
+  },
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.18.0",
     "vue": "^2.5.22",
     "vue-router": "^3.0.2"
   },
