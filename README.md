@@ -1,5 +1,5 @@
 # vue-base 
-> A Vue.js project cli with webpack4
+> vue configuration with webpack4 to quickly start your project
 
 ## Build Setup
 
