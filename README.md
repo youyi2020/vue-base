@@ -38,7 +38,8 @@ npm run build
 ```
 #### 3.Bootstrap
 ```
-尽量减少 resolve.modules, resolve.extensions, resolve.mainFiles, resolve.descriptionFiles 中类目的数量，因为他们会增加文件系统调用的次数
+尽量减少 resolve.modules, resolve.extensions, resolve.mainFiles, resolve.descriptionFiles中类目的数量
+因为他们会增加文件系统调用的次数
 ```
 
 #### 4.避免在生产环境下才会用到的工具
