@@ -42,12 +42,16 @@ npm run build
 ```
 
 #### 4.避免在生产环境下才会用到的工具
-某些实用工具， plugins 和 loaders 都只能在构建生产环境时才有用。例如，在开发时使用 UglifyJsPlugin 来压缩和修改代码是没有意义的。以下这些工具在开发中通常被排除在外:
+```
+某些实用工具， plugins 和 loaders 都只能在构建生产环境时才有用。
+例如，在开发时使用 UglifyJsPlugin 来压缩和修改代码是没有意义的。以下这些工具在开发中通常被排除在外:
+```
 
 #### 5.最小化入口 chunk
 
 ```js
-应当在生成入口 chunk 时，尽量减少入口 chunk 的体积，以提高性能。下述代码块将只提取包含 runtime 的 chunk ，其他 chunk 都作为子模块:
+应当在生成入口 chunk 时，尽量减少入口 chunk 的体积，以提高性能。
+下述代码块将只提取包含 runtime 的 chunk ，其他 chunk 都作为子模块:
 new CommonsChunkPlugin({
   name: "manifest",
   minChunks: Infinity
